@@ -43,7 +43,7 @@ pipeline {
     }
     post {
         always {
-            bat 'docker logout'
+            sh 'docker logout'
         }
         failure {
             echo "Build failed. Check logs for details."
