@@ -24,7 +24,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'test-dockerhubpass', variable: 'DOCKER_HUB_PASS')]) {
                     script {
-                        def loginSuccess = bat(returnStatus: true, script: "docker login -u ruwanthilakshika -p ${DOCKER_HUB_PASS}")
+                        def loginSuccess = sh(returnStatus: true, script: "docker login -u ruwanthilakshika -p ${DOCKER_HUB_PASS}")
                         if (loginSuccess != 0) {
                             error("Docker login failed! Check credentials.")
                         }
