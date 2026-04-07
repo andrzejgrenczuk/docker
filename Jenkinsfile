@@ -16,7 +16,7 @@ pipeline {
             steps {  
                 script {
                     def buildTag = env.BUILD_NUMBER
-                    bat "docker build --no-cache -t ${DOCKER_IMAGE}:${buildTag} ."
+                    sh "docker build --no-cache -t ${DOCKER_IMAGE}:${buildTag} ."
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     def buildTag = env.BUILD_NUMBER
-                    bat "docker push ${DOCKER_IMAGE}:${buildTag}"
+                    sh "docker push ${DOCKER_IMAGE}:${buildTag}"
                 }
             }
         }
